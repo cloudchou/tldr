@@ -2,6 +2,10 @@
 
 > Manage Docker containers and images.
 
+- Run web image:
+
+`docker run -t -i --rm -p 80:80  -v (pwd):/data/work --name frontend -w /data/work  front-end:latest    /bin/bash`
+
 - List currently running docker containers:
 
 `docker container ls`
