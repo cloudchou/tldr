@@ -4,6 +4,10 @@
 
 - List available network interfaces:
 
+`tcpdump -A -s 0 tcp[20:2]=0x4745 or tcp[20:2]=0x4854`
+
+- List available network interfaces:
+
 `tcpdump -D`
 
 - Capture the traffic of a specific interface:
