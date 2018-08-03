@@ -34,3 +34,7 @@
 - Pass client certificate and key for a resource, skipping certificate validation:
 
 `curl --cert {{client.pem}} --key {{key.pem}} --insecure {{https://example.com}}`
+
+- Request a url, and print response of http protocol:
+
+`curl -D - {{http://example.com/filename}}`

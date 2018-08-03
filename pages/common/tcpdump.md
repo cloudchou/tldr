@@ -2,9 +2,17 @@
 
 > Dump traffic on a network.
 
-- List available network interfaces:
+- Capture the traffic of Http Get:
 
-`tcpdump -A -s 0 tcp[20:2]=0x4745 or tcp[20:2]=0x4854`
+`tcpdump -A -i any -s 0 'tcp dst port 80 and tcp[((tcp[12]>>4)<<2):4]=0x47455420'`
+
+- Capture the traffic of Http Post:
+
+`tcpdump -A -i any -s 0 'tcp dst port 80 and tcp[((tcp[12]>>4)<<2):4]=0x504F5354'`
+
+- Capture the traffic of Http Response:
+
+`tcpdump -A -i any -s 0 'src host {{10.96.153.226}} and tcp[((tcp[12]>>4)<<2):4]=0x48545450'`
 
 - List available network interfaces:
 
@@ -12,28 +20,8 @@
 
 - Capture the traffic of a specific interface:
 
-`tcpdump -i {{eth0}}`
-
-- Capture all TCP traffic showing contents (ASCII) in console:
-
-`tcpdump -A tcp`
-
-- Capture the traffic from or to a host:
-
-`tcpdump host {{www.example.com}}`
-
-- Capture the traffic from a specific interface, source, destination and destination port:
-
-`tcpdump -i {{eth0}} src {{192.168.1.1}} and dst {{192.168.1.2}} and dst port {{80}}`
-
-- Capture the traffic of a network:
-
-`tcpdump net {{192.168.1.0/24}}`
+`tcpdump -A -i {{eth0}}`
 
 - Capture all traffic except traffic over port 22 and save to a dump file:
 
 `tcpdump -w {{dumpfile.pcap}} not port {{22}}`
-
-- Read from a given dump file:
-
-`tcpdump -r {{dumpfile.pcap}}`
