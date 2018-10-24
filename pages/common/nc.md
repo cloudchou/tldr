@@ -10,6 +10,10 @@
 
 `nc {{ip_address}} {{port}}`
 
+- Connect to a certain port for test connect:
+
+`nc -z -v {{ip_address}} {{port}}`
+
 - Set a timeout:
 
 `nc -w {{timeout_in_seconds}} {{ipaddress}} {{port}}`
